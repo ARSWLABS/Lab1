@@ -7,29 +7,30 @@ package edu.eci.arsw.threads;
 
 /**
  *
- * @author hcadavid
+ * @author Juan Cancelado y Diego Chicuazuque
  */
-public class CountThread {
+public class CountThread extends Thread {
+    private int start;
+    private int end;
 
-  private int start, end;
-
-  /**
+    /**
    * This method is the constructor of the class
    * @param start
    * @param end
    */
-  public CountThread(int start, int end) {
-    this.start = start;
-    this.end = end;
-  }
 
-  /**
+    public CountThread(int start, int end) {
+        this.start = start;
+        this.end = end;
+    }
+    /**
    * This method is the run method of the class
    * In this case it prints the numbers between as start and end
    */
-  public void run() {
-    for (int i = start; i <= end; i++) {
-      System.out.println(i);
+    @Override
+    public void run() {
+        for (int i = start; i <= end; i++) {
+            System.out.println(i);
+        }
     }
-  }
 }
