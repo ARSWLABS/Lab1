@@ -26,18 +26,18 @@ public class Main {
     int digitsToCalculate = 1000000;
 
     runExperiment("Un solo hilo", 1, digitsToCalculate);
-    runExperiment(
-      "Con " + availableCores + " hilos (núcleos)",
-      availableCores,
-      digitsToCalculate
-    );
-    runExperiment(
-      "Con " + (availableCores * 2) + " hilos",
-      availableCores * 2,
-      digitsToCalculate
-    );
-    runExperiment("Con 200 hilos", 200, digitsToCalculate);
-    runExperiment("Con 500 hilos", 500, digitsToCalculate);
+    //runExperiment(
+    //  "Con " + availableCores + " hilos (núcleos)",
+    // availableCores,
+    //  digitsToCalculate
+    //);
+    //runExperiment(
+    //  "Con " + (availableCores * 2) + " hilos",
+    //  availableCores * 2,
+    //  digitsToCalculate
+    //);
+    //runExperiment("Con 200 hilos", 200, digitsToCalculate);
+    //runExperiment("Con 500 hilos", 500, digitsToCalculate);
   }
 
   private static void runExperiment(
