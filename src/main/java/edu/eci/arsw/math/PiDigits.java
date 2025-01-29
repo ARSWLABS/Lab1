@@ -16,12 +16,12 @@ public class PiDigits {
         byte[] digits = new byte[count];
         List<PiDigitCalculator> threads = new ArrayList<>();
 
-        int chunkSize = count / numThreads; // División equitativa del trabajo
-        int remainder = count % numThreads; // Resto a distribuir
+        int chunkSize = count / numThreads;
+        int remainder = count % numThreads;
 
         int currentStart = start;
         for (int i = 0; i < numThreads; i++) {
-            int currentCount = chunkSize + (i < remainder ? 1 : 0); // Distribuye el resto
+            int currentCount = chunkSize + (i < remainder ? 1 : 0); 
             PiDigitCalculator thread = new PiDigitCalculator(currentStart, currentCount, digits, currentStart - start);
             threads.add(thread);
             thread.start();
