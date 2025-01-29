@@ -23,10 +23,8 @@ public class Main {
 
     int availableCores = Runtime.getRuntime().availableProcessors();
 
-    // Establecemos el número de dígitos de Pi que queremos calcular (un millón de dígitos hexadecimales)
     int digitsToCalculate = 1000000;
 
-    // Experimentamos con diferentes configuraciones de hilos
     runExperiment("Un solo hilo", 1, digitsToCalculate);
     runExperiment(
       "Con " + availableCores + " hilos (núcleos)",
@@ -49,16 +47,12 @@ public class Main {
   ) {
     System.out.println("\nExperimentando: " + experimentName);
 
-    // Medimos el tiempo antes de comenzar el experimento
     long startTime = System.nanoTime();
 
-    // Ejecutamos el cálculo de Pi usando múltiples hilos
     calculatePiWithThreads(numThreads, digitsToCalculate);
 
-    // Medimos el tiempo después de ejecutar el experimento
     long endTime = System.nanoTime();
 
-    // Calculamos el tiempo de ejecución en milisegundos
     long duration = (endTime - startTime) / 1000000;
     System.out.println(
       "Tiempo de ejecución con " + numThreads + " hilos: " + duration + " ms"
@@ -83,7 +77,6 @@ public class Main {
       futures[i] = executorService.submit(() -> PiDigits.getDigits(start, end));
     }
 
-    // Esperamos a que todos los hilos terminen y juntamos los resultados
     byte[] result = new byte[digitsToCalculate];
     try {
       for (int i = 0; i < numThreads; i++) {
@@ -100,11 +93,9 @@ public class Main {
       e.printStackTrace();
     }
 
-    // Cerramos el servicio del ejecutor
     executorService.shutdown();
 
-    // Convertimos el resultado a hexadecimal y lo imprimimos (si es necesario)
-    System.out.println(bytesToHex(result).substring(0, 100) + "..."); // Solo imprimimos los primeros 100 caracteres
+    System.out.println(bytesToHex(result).substring(0, 10000) + "...");
   }
 
   private static final char[] hexArray = "0123456789ABCDEF".toCharArray();
