@@ -5,9 +5,9 @@
  */
 package edu.eci.arsw.math;
 
+import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -39,7 +39,7 @@ public class PiCalcTest {
 
         for (int start = 0; start < expected.length; start++) {
             for (int count = 0; count < expected.length - start; count++) {
-                byte[] digits = PiDigits.getDigits(start, count);
+                byte[] digits = PiDigits.getDigits(start, count,1);
                 assertEquals(count, digits.length);
 
                 for (int i = 0; i < digits.length; i++) {

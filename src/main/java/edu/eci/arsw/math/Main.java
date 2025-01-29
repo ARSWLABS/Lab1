@@ -4,8 +4,8 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println(bytesToHex(PiDigits.getDigits(0, 10, 1)));
-        System.out.println(bytesToHex(PiDigits.getDigits(1, 20, 2)));
-        System.out.println(bytesToHex(PiDigits.getDigits(2, 30, 3)));
+        System.out.println(bytesToHex(PiDigits.getDigits(0, 20, 2)));
+        System.out.println(bytesToHex(PiDigits.getDigits(0, 30, 3)));
 
     }
 
