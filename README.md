@@ -1,12 +1,27 @@
 ## Arquitecturas de Software Laboratorio 1
 ### Introducción al paralelismo - hilos
 ### Integrantes: Juan Cancelado y Diego Chicuazuque
-**Parte I Hilos Java**
-![](img/1.png)
-![](img/2.png)
+## Parte 1 
 
+En la primera parte nos piden hacer el ejercicio de ejecutar el codigo con star() el cual va haciendo saltos entre los hilos como podemos observar el hilo 1 va de 0 a 99 pero empieza a saltar por ejemplo de 8 a 100.
 
-## parte 3 
+![](img/3.png)
+
+En la segunda parte nos piden que lo corramos con run() el cual lo que hace es ejecutar cada hilo en orden, entonces este empieza en 0 y cuando llegue a 99 empieza el hilo 2.
+
+![](img/4.png)
+
+Cambie el incio con 'start()' por 'run()'. Cómo cambia la salida?, por qué?.
+
+La salida cambia porque el start() lo que hace es ejecutar todos los hilos al tiempo entonces como es al tiempo va imprimiendo lo primero que salga.
+Por el otro lado como podemos ver con run() ejecuta los hilos uno por uno.
+## Parte 2
+
+Lo que hicimos en este punto fue hacer un thread el cual calcula los digitos de pi en base 16 e intentamos consguir muchos digitos de este tambien nos piden las pruebas con 3 hilos.
+
+![](img/5.png),
+
+## Parte 3 
 ### usando visual vm y calculando 100.000 digitos de phi
 
 #### Nota: se uso 100.000 debido a que durante las pruebas con 1.000.000 duraron mas de 1 hr sin completarse la de 1 hilo por lo que se opto por reducir el numero de digitos
