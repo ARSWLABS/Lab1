@@ -4,9 +4,11 @@
 ## parte 1 
 
 En la primera parte nos piden hacer el ejercicio de ejecutar el codigo con star() el cual va haciendo saltos entre los hilos como podemos observar el hilo 1 va de 0 a 99 pero empieza a saltar por ejemplo de 8 a 100.
-![image](img/3.png),
+![](img/3.png)
+
 En la segunda parte nos piden que lo corramos con run() el cual lo que hace es ejecutar cada hilo en orden, entonces este empieza en 0 y cuando llegue a 99 empieza el hilo 2.
-![](img/4.png),
+![](img/4.png)
+
 Cambie el incio con 'start()' por 'run()'. Cómo cambia la salida?, por qué?.
 
 La salida cambia porque el start() lo que hace es ejecutar todos los hilos al tiempo entonces como es al tiempo va imprimiendo lo primero que salga.
