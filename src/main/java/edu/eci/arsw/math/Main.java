@@ -2,6 +2,8 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
+ *
+ * @author Juan Cancelado y Diego Chicuazuque
  */
 package edu.eci.arsw.math;
 
@@ -12,10 +14,15 @@ import java.util.concurrent.Future;
 
 /**
  *
- * @author hcadavid
+ * @author Juan Cancelado y Diego Chicuazuque
  */
 public class Main {
 
+  /**
+   * Método principal que inicia la ejecución del programa.
+   *
+   * @param a Argumentos de línea de comandos (no utilizados en este programa).
+   */
   public static void main(String a[]) {
     //System.out.println(bytesToHex(PiDigits.getDigits(0, 10)));
     //System.out.println(bytesToHex(PiDigits.getDigits(1, 100)));
@@ -100,6 +107,14 @@ public class Main {
 
   private static final char[] hexArray = "0123456789ABCDEF".toCharArray();
 
+  /**
+   * Ejecuta un experimento de cálculo de dígitos de Pi.
+   *
+   * @param description Descripción del experimento.
+   * @param numThreads Número de hilos a utilizar.
+   * @param digitsToCalculate Número de dígitos de Pi a calcular.
+   * @throws IllegalArgumentException si numThreads es menor o igual a 0.
+   */
   public static String bytesToHex(byte[] bytes) {
     char[] hexChars = new char[bytes.length * 2];
     for (int j = 0; j < bytes.length; j++) {
