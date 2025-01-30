@@ -25,9 +25,9 @@ public class Main {
    * @param a Argumentos de línea de comandos (no utilizados en este programa).
    */
   public static void main(String a[]) {
-    //System.out.println(bytesToHex(PiDigits.getDigits(0, 10)));
-    //System.out.println(bytesToHex(PiDigits.getDigits(1, 100)));
-    //System.out.println(bytesToHex(PiDigits.getDigits(1, 1000000)));
+    System.out.println(bytesToHex(PiDigits.getDigits(0, 10, 1)));
+    System.out.println(bytesToHex(PiDigits.getDigits(1, 100, 1)));
+    System.out.println(bytesToHex(PiDigits.getDigits(1, 1000000, 1)));
 
     int availableCores = Runtime.getRuntime().availableProcessors();
 
@@ -74,7 +74,7 @@ public class Main {
     ExecutorService executorService = Executors.newFixedThreadPool(numThreads);
     int range = digitsToCalculate / numThreads;
     @SuppressWarnings("unchecked")
-    Future<byte[]>[] futures = (Future<byte[]>[]) new Future<?>[numThreads];
+    Future<byte[]>[] futures = new Future[numThreads];
 
     // Dividimos el trabajo entre los hilos
     for (int i = 0; i < numThreads; i++) {
@@ -83,7 +83,7 @@ public class Main {
         ? digitsToCalculate
         : (i + 1) * range;
       futures[i] =
-        executorService.submit(() -> PiDigits.getDigits(start, end - start));
+        executorService.submit(() -> PiDigits.getDigits(start, end - start, numThreads));
     }
 
     byte[] result = new byte[digitsToCalculate];
@@ -126,6 +126,7 @@ public class Main {
     StringBuilder sb = new StringBuilder();
     for (int i = 0; i < hexChars.length; i++) {
       sb.append(hexChars[i]);
-
     }
+    return sb.toString();
+  }
 }
