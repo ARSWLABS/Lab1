@@ -26,18 +26,18 @@ public class Main {
     int digitsToCalculate = 1000000;
 
     runExperiment("Un solo hilo", 1, digitsToCalculate);
-    //runExperiment(
-    //  "Con " + availableCores + " hilos (núcleos)",
-    // availableCores,
-    //  digitsToCalculate
-    //);
-    //runExperiment(
-    //  "Con " + (availableCores * 2) + " hilos",
-    //  availableCores * 2,
-    //  digitsToCalculate
-    //);
-    //runExperiment("Con 200 hilos", 200, digitsToCalculate);
-    //runExperiment("Con 500 hilos", 500, digitsToCalculate);
+    runExperiment(
+      "Con " + availableCores + " hilos (núcleos)",
+      availableCores,
+      digitsToCalculate
+    );
+    runExperiment(
+      "Con " + (availableCores * 2) + " hilos",
+      availableCores * 2,
+      digitsToCalculate
+    );
+    runExperiment("Con 200 hilos", 200, digitsToCalculate);
+    runExperiment("Con 500 hilos", 500, digitsToCalculate);
   }
 
   private static void runExperiment(
@@ -53,7 +53,7 @@ public class Main {
 
     long endTime = System.nanoTime();
 
-    long duration = (endTime - startTime) / 1000000;
+    long duration = (endTime - startTime) / 100000;
     System.out.println(
       "Tiempo de ejecución con " + numThreads + " hilos: " + duration + " ms"
     );
@@ -74,7 +74,8 @@ public class Main {
       final int end = (i == numThreads - 1)
         ? digitsToCalculate
         : (i + 1) * range;
-      futures[i] = executorService.submit(() -> PiDigits.getDigits(start, end));
+      futures[i] =
+        executorService.submit(() -> PiDigits.getDigits(start, end - start));
     }
 
     byte[] result = new byte[digitsToCalculate];
@@ -94,8 +95,7 @@ public class Main {
     }
 
     executorService.shutdown();
-
-    System.out.println(bytesToHex(result).substring(0, 10000) + "...");
+    //System.out.println(bytesToHex(result).substring(0, 100000) + "...");
   }
 
   private static final char[] hexArray = "0123456789ABCDEF".toCharArray();
