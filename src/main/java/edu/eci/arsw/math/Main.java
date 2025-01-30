@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -125,7 +126,6 @@ public class Main {
     StringBuilder sb = new StringBuilder();
     for (int i = 0; i < hexChars.length; i++) {
       sb.append(hexChars[i]);
+
     }
-    return sb.toString();
-  }
 }
